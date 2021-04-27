@@ -1,0 +1,28 @@
+{
+  "name": "pl-env-test",
+  "version": "1.0.0-pre",
+  "description": "A project generated from aunty's basic project template.",
+  "license": "MIT",
+  "private": true,
+  "contributors": [
+    "Joshua Byrd <phocks@gmail.com>"
+  ],
+  "aunty": {
+    "type": "basic"
+  },
+  "scripts": {
+    "start": "aunty serve",
+    "test": "aunty test"
+  },
+  "abc": {
+    "css": {
+      "libraryDir": "./node_modules/@abcaustralia/nucleus/css",
+      "logVariables": "false"
+    }
+  },
+  "dependencies": {
+    "@abcnews/aunty": "^12.0.2",
+    "@abcnews/env-utils": "^3.0.0",
+    "3d-force-graph": "^1.69.4"
+  }
+}
