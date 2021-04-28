@@ -1,19 +1,21 @@
 import App from './components/App';
-import { DECOY_KEYS, getApplication, getGeneration, getTier, requestDOMPermit } from '@abcnews/env-utils';
+import { takeover } from '../../simple-article-takeover';
 
 const PROJECT_NAME = 'pl-env-test';
 
-function init() {
-  requestDOMPermit(DECOY_KEYS.ARTICLE).then(() => {
-    // Remove sidebar
-    const sidebarEl = document.querySelector("[data-component='ArticleSidebar']").parentElement;
-    sidebarEl.classList.add('nodisplay');
-    sidebarEl.classList.add('u-full');
+async function init() {
+  // requestDOMPermit(DECOY_KEYS.ARTICLE).then(() => {
+  //   // Remove sidebar
+  //   const sidebarEl = document.querySelector("[data-component='ArticleSidebar']").parentElement;
+  //   sidebarEl.classList.add('nodisplay');
 
-    // It is now safe to modify the DOM tree below the decoy
-    const root = document.querySelector('[data-component="Sidebar"]');
-    render(new App({ projectName: PROJECT_NAME }).el, root);
-  });
+  //   // It is now safe to modify the DOM tree below the decoy
+  //   const root = document.querySelector('[data-component="Sidebar"]');
+  //   render(new App({ projectName: PROJECT_NAME }).el, root);
+  // });
+
+  const result = await takeover();
+  console.log('Takeover done...', result);
 }
 
 init();
